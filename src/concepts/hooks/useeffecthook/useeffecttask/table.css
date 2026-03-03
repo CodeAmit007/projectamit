@@ -1,0 +1,79 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.product-table {
+  width: 95%;
+  margin: 40px auto;
+  border-collapse: collapse;
+  font-family: "Segoe UI", sans-serif;
+  background: #ffffff;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.product-table thead {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: white;
+}
+
+.product-table th {
+  padding: 18px 12px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.product-table th button {
+  margin-top: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.product-table th button:hover {
+  background-color: #f8f9fc;
+  transform: scale(1.05);
+}
+
+.product-table td {
+  padding: 14px 10px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.product-table tbody tr:hover {
+  background-color: #f4f8ff;
+  transition: 0.3s ease;
+}
+
+.product-table img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.delete-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #e74a3b;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.08);
+}
+ */
