@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "id":1,
+            "username": "amit",
+            "age": "21",
+            "email": "amitsahoo711@gmail.com",
+            "password": "784785",
+            "dob": "09/02/2005",
+            "city": "bhadrak",
+            "gender": "male"
+        }
+    ]
+}

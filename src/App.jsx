@@ -15,6 +15,7 @@ import PropsDrilling from "./concepts/propsdrilling/PropsDrilling"
 import ContextApiConcept from "./concepts/contextapi/ContextApiConcept"
 import Hoc1 from "./concepts/hoc/Hoc1"
 import ReactOptimization from "./concepts/optimization/ReactOptimization"
+import CrudOperationHome from "./concepts/crudoperation/CrudOperationHome"
 
 const App = () => {
     return (
@@ -24,11 +25,10 @@ const App = () => {
             {/* <TernaryRender/> */}
             {/* <PropsHome/> */}
             {/* <Icons_implimentation/> */}
-            <HooksHome/>
+            {/* <HooksHome/> */}
             {/* <Reactfragment/> */}
             {/* <ListAndKeys/> */}
             {/* <FromHandling /> */}
-            <ToastContainer />
             {/* <AxiosConcept/> */}
             {/* <Tailwindcssconcept/> */}
             {/* <RouterLayout /> */}
@@ -36,6 +36,9 @@ const App = () => {
             {/* <ContextApiConcept/> */}
             {/* <Hoc1/> */}
             {/* <ReactOptimization/> */}
+            <CrudOperationHome/>
+            <ToastContainer />
+            
         </div>
     )
 }
