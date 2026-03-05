@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -12,19 +17,47 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleInput = (e) => {
-    const { name, value } = e.target
-    setFormData({...formData,[name]: value})
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleForm = async (e) => {
+  e.preventDefault();
+
+  if (!formData.email || !formData.password) {
+    toast.error("Please fill all fields");
+    return;
   }
 
-  const handleForm = (e) => {
-    e.preventDefault()
-    console.log(formData)
+  try {
+    const res = await axios.get(
+      `http://localhost:5000/users?email=${formData.email}`
+    );
 
-    setFormData({
-      email:"",
-      password:""
-    })
+    if (res.data.length === 0) {
+      toast.error("User not found");
+      return;
+    }
+
+    const user = res.data[0];
+    if (user.password === formData.password) {
+      toast.success("Login Successful");
+      localStorage.setItem("user", JSON.stringify(user));
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1500);
+    } else {
+      toast.error("Incorrect Password");
+    }
+  } catch (error) {
+    toast.error("Login Failed");
   }
+
+  setFormData({
+    email: "",
+    password: ""
+  });
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900">

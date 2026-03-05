@@ -1,7 +1,11 @@
-import axios from 'axios';
-import React, { useState } from 'react'
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Register = () => {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: "",
@@ -15,36 +19,50 @@ const Register = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
-    //! send the data to backend for register purpose
-    //* if register done successfully then navigate to login page
-    try {
-      const { data } = await axios.post("http://localhost:3000/users", formData)
-      console.log(data)
-    } catch (error) {
-      console.log(error)
+    if (
+      !formData.username ||
+      !formData.age ||
+      !formData.email ||
+      !formData.password ||
+      !formData.dob ||
+      !formData.city ||
+      !formData.gender
+    ) {
+      toast.error("Please fill all fields", { position: "top-center" });
+      return;
     }
 
-    setFormData({
-      username: "",
-      age: "",
-      email: "",
-      password: "",
-      dob: "",
-      city: "",
-      gender: ""
-    });
+    try {
+      await axios.post("http://localhost:5000/users", formData);
 
+      toast.success("Register Successful", {
+        position: "top-center"});
+
+      setFormData({
+        username: "",
+        age: "",
+        email: "",
+        password: "",
+        dob: "",
+        city: "",
+        gender: ""
+      });
+
+      // setTimeout(() => {
+      //   navigate("/login");
+      // }, 2000);
+      navigate("/login");
+
+    } catch (error) {
+      toast.error("Registration Failed");
+      console.log(error);
+    }
   };
 
   return (
@@ -58,61 +76,55 @@ const Register = () => {
 
         <form onSubmit={handleSubmit} className="space-y-4">
 
-          {/* Username */}
           <input
             type="text"
             name="username"
             placeholder="Username"
             value={formData.username}
             onChange={handleChange}
-            className="w-full border px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-400"
+            className="w-full border px-4 py-2 rounded-md"
           />
 
-          {/* Age */}
           <input
             type="number"
             name="age"
             placeholder="Age"
             value={formData.age}
             onChange={handleChange}
-            className="w-full border px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-400"
+            className="w-full border px-4 py-2 rounded-md"
           />
 
-          {/* Email */}
           <input
             type="email"
             name="email"
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-400"
+            className="w-full border px-4 py-2 rounded-md"
           />
 
-          {/* Password */}
           <input
             type="password"
             name="password"
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full border px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-400"
+            className="w-full border px-4 py-2 rounded-md"
           />
 
-          {/* Date of Birth */}
           <input
             type="date"
             name="dob"
             value={formData.dob}
             onChange={handleChange}
-            className="w-full border px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-400"
+            className="w-full border px-4 py-2 rounded-md"
           />
 
-          {/* City Dropdown */}
           <select
             name="city"
             value={formData.city}
             onChange={handleChange}
-            className="w-full border px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-400"
+            className="w-full border px-4 py-2 rounded-md"
           >
             <option value="">Select City</option>
             <option value="Delhi">Delhi</option>
@@ -121,7 +133,6 @@ const Register = () => {
             <option value="Mumbai">Mumbai</option>
           </select>
 
-          {/* Gender */}
           <div className="flex gap-4">
             <label>
               <input
@@ -148,25 +159,21 @@ const Register = () => {
                 type="radio"
                 name="gender"
                 value="Other"
-                checked={formData.gender === "Other"}
                 onChange={handleChange}
+                checked={formData.gender === "Other"}
               /> Other
             </label>
           </div>
 
-          {/* Submit Button */}
           <button
-            className="w-full py-2 text-white font-semibold rounded-md 
-            bg-gradient-to-r from-indigo-500 to-blue-500 
-            hover:from-indigo-600 hover:to-blue-600 transition"
+            type="submit"
+            className="w-full py-2 text-white rounded-md bg-blue-500 hover:bg-blue-600"
           >
             Register
           </button>
 
         </form>
-
       </div>
-
     </div>
   );
 };

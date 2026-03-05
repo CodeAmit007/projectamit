@@ -36,9 +36,8 @@ const App = () => {
             {/* <ContextApiConcept/> */}
             {/* <Hoc1/> */}
             {/* <ReactOptimization/> */}
-            <CrudOperationHome/>
             <ToastContainer />
-            
+            <CrudOperationHome/> 
         </div>
     )
 }

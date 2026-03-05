@@ -1,14 +1,25 @@
 {
-    "users": [
-        {
-            "id":1,
-            "username": "amit",
-            "age": "21",
-            "email": "amitsahoo711@gmail.com",
-            "password": "784785",
-            "dob": "09/02/2005",
-            "city": "bhadrak",
-            "gender": "male"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "username": "amit",
+      "age": "21",
+      "email": "amitsahoo711@gmail.com",
+      "password": "784785",
+      "dob": "09/02/2005",
+      "city": "bhadrak",
+      "gender": "male"
+    },
+    {
+      "id": "2162",
+      "username": "krish",
+      "age": "18",
+      "email": "amitsahoo2394@gmail.com",
+      "password": "2007",
+      "dob": "2026-03-23",
+      "city": "Hyderabad",
+      "gender": "Male"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
