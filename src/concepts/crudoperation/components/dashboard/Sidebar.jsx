@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaFileAlt, FaMousePointer, FaRegSquare, FaTable } from 'react-icons/fa'
-import { FiFileText, FiGrid, FiHome, FiPieChart } from 'react-icons/fi'
+import { FiFileText, FiGrid, FiHome, FiLogOut, FiPieChart } from 'react-icons/fi'
 import { RiArrowDropDownLine } from 'react-icons/ri'
 
 const Sidebar = () => {
@@ -17,7 +17,7 @@ const Sidebar = () => {
             <li className="flex items-center gap-3 hover:text-purple-600 cursor-pointer"><FaTable />Tables</li>
             <li className="flex items-center gap-3 hover:text-purple-600 cursor-pointer "><FaFileAlt /><span className='flex gap-8 items-center'>Pages <RiArrowDropDownLine /></span></li>
         </ul>
-        <button className="w-full mt-6 bg-purple-600 text-white py-2 rounded-lg cursor-pointer hover:bg-purple-700 font-bold">Log Out</button>
+        <button className="w-full mt-6 bg-purple-600 text-white py-2 rounded-lg cursor-pointer hover:bg-purple-700 font-bold flex items-center justify-center gap-3">Log Out <FiLogOut /></button>
     </div>
   )
 }

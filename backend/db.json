@@ -19,6 +19,16 @@
       "dob": "2026-03-23",
       "city": "Hyderabad",
       "gender": "Male"
+    },
+    {
+      "id": "cae1",
+      "username": "hello",
+      "age": "45",
+      "email": "amitsahoo2394@gmail.com",
+      "password": "789",
+      "dob": "2026-03-17",
+      "city": "Mumbai",
+      "gender": "Male"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
